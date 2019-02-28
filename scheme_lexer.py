@@ -24,6 +24,8 @@ reserved = {
 
 # Define tokens and add the reserved words as a list.
 tokens = [
+    'EQQUES',
+    'NEQQUES',
     'ID',
     'ADD',
     'MINUS',
@@ -48,8 +50,6 @@ tokens = [
     'COM_BLOCK',
     'INT',
     'FLOAT',
-    'EQQUES',
-    'NEQQUES',
     'CHARACTER',
     'STRING',
     ] + list(reserved.values())
@@ -74,10 +74,7 @@ t_CLOSE_KEY = r'\}'
 t_COMMA = r'\,'
 t_TRUE = r'\#t'
 t_FALSE = r'\#f'
-t_NEQQUES = r'NEQ\?'
-t_EQQUES = r'EQ\?'
-t_CHARACTER = r'\'[a-zA-Z]\''
-#t_STRING = r'\".*\"'
+t_CHARACTER = r'\'[^\']+\''
 t_STRING = r'\"[^"]*\"'
 
 # Ignore elements that are goint to be in the code but aren't required.
@@ -85,6 +82,15 @@ t_ignore_SPACE = r'\ '
 t_ignore_TAB = '\\t'
 t_ignore_ENTER = '\\n'
 t_ignore_COMMENT = r'\;.*'
+
+
+def t_EQQUES(t):
+    r'eq\?'
+    return t
+
+def t_NEQQUES(t):
+    r'neq\?'
+    return t
 
 # Define a regular expression to detect float numbers, located above the integer identifier to prioritize it.
 def t_FLOAT(t):
@@ -111,8 +117,8 @@ def t_error(t):
 
 # Create lexer.
 lexer = lex.lex()
-
-lexer.input("'a' \"b\" cond \"Simple \tsentence with issues\" if\tIF cond else case lambda\ndefine and or do cons cdr car#|Bloque de comentarios\nIgnorame pls\tsi eres tan amable\n|#last list remainder log id id1 id2 id_ id_2_3_4 id_test_3 iDF id_Fg4_5f +-/*;Comentario, ignorame pls\n>=><=<()[]{},#t #f EQ? NEQ?")
+string = "'a' ' ' '/' '4' '=' \"b\" cond \"Simple \tsentence with issues\" if\tIF cond else case lambda\ndefine and or do cons cdr car#|Bloque de comentarios\nIgnorame pls\tsi eres tan amable\n|#last list remainder log id id1 id2 id_ id_2_3_4 id_test_3 iDF id_Fg4_5f +-/*;Comentario, ignorame pls\n>=><=<()[]{},#t #f eq? neq?"
+lexer.input(string)
 
 while True:
     tok = lexer.token()
