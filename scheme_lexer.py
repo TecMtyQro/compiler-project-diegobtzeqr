@@ -20,6 +20,8 @@ reserved = {
     'list' : 'LIST',
     'remainder' : 'REMAINDER',
     'log' : 'LOG',
+    'read' : 'READ',
+    'display' : 'DISPLAY',
     }
 
 # Define tokens and add the reserved words as a list.
@@ -31,6 +33,7 @@ tokens = [
     'MINUS',
     'MULTIPLY',
     'DIVIDE',
+    'EQUALS',
     'GREATER',
     'LESS',
     'GREATER_EQUAL',
@@ -61,6 +64,7 @@ t_ADD = r'\+'
 t_MINUS = r'\-'
 t_MULTIPLY = r'\*'
 t_DIVIDE = r'\/'
+t_EQUALS = r'\='
 t_GREATER_EQUAL = r'\>\='
 t_GREATER = r'\>'
 t_LESS_EQUAL = r'\<\='
@@ -82,7 +86,6 @@ t_ignore_SPACE = r'\ '
 t_ignore_TAB = '\\t'
 t_ignore_ENTER = '\\n'
 t_ignore_COMMENT = r'\;.*'
-
 
 def t_EQQUES(t):
     r'eq\?'
@@ -112,16 +115,26 @@ def t_ID(t):
 
 # Define the error method for invalid characters.
 def t_error(t):
-     print("Illegal character '%s'" % t.value[0])
-     t.lexer.skip(1)
+    t.type = "ERROR"
+    print("ERROR: Illegal character '%s'" % t.value[0])
+    t.value = t.value[0]
+    t.lexer.skip(1)
+    return t
+
+'''def t_error(t):
+     print("ERROR: Illegal character '%s'" % t.value[0])
+     t.lexer.skip(1)'''
 
 # Create lexer.
 lexer = lex.lex()
-string = "'a' ' ' '/' '4' '=' \"b\" cond \"Simple \tsentence with issues\" if\tIF cond else case lambda\ndefine and or do cons cdr car#|Bloque de comentarios\nIgnorame pls\tsi eres tan amable\n|#last list remainder log id id1 id2 id_ id_2_3_4 id_test_3 iDF id_Fg4_5f +-/*;Comentario, ignorame pls\n>=><=<()[]{},#t #f eq? neq?"
-lexer.input(string)
-
+#string = "'a' ' ' '/' read display '4' = '=' \"b\" cond \"Simple \tsentence with issues\" if\tIF cond else case lambda\ndefine and or do cons cdr car#|Bloque de comentarios\nIgnorame pls\tsi eres tan amable\n|#last list remainder log id id1 id2 id_ id_2_3_4 id_test_3 iDF id_Fg4_5f +-/*;Comentario, ignorame pls\n>=><=<()[]{},#t #f eq? neq?"
+#lexer.input(string)
+'''
 while True:
     tok = lexer.token()
     if not tok:
         break
+    if tok.type == "ERROR":
+        break
     print(tok)
+'''
