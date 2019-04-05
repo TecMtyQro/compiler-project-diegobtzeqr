@@ -1,0 +1,2 @@
+LexToken(INT,420,1,0)
+LexToken(FLOAT,3.141592,1,4)

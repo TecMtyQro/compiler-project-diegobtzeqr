@@ -1,2 +1,1 @@
-((read) x)
-((display) x)
+(display (read))

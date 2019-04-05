@@ -1,0 +1,6 @@
+LexToken(TRUE,'#t',1,0)
+LexToken(FALSE,'#f',1,3)
+LexToken(INT,420,1,6)
+LexToken(FLOAT,3.141592,1,10)
+LexToken(CHARACTER,"'v'",1,19)
+LexToken(ID,'abcd_1234',1,23)

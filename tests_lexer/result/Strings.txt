@@ -1,0 +1,1 @@
+LexToken(STRING,'"Strings of characters\nthat\tare weird."',1,0)

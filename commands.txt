@@ -1,0 +1,7 @@
+python scheme_compiler.py < tests/VariableDefinition.rkt
+python scheme_compiler.py < tests/InputOutput.rkt
+python scheme_compiler.py < tests/LoopConditional.rkt
+python scheme_compiler.py < tests/All.rkt
+python scheme_compiler.py < tests/WrongDefine.rkt
+python scheme_compiler.py < tests/NotAllowedThings.rkt
+python scheme_compiler.py < tests/WrongLoop.rkt
