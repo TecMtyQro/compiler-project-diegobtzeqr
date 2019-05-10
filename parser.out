@@ -21,120 +21,122 @@ Rule 8     expression -> constant
 Rule 9     expression -> if_expression
 Rule 10    expression -> do_expression
 Rule 11    expression -> cond_expression
-Rule 12    expression -> operation
-Rule 13    expression -> ID
-Rule 14    expression -> read
-Rule 15    expression -> display
-Rule 16    expression -> cons
-Rule 17    expression -> list_manip
-Rule 18    if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR
-Rule 19    if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-Rule 20    cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-Rule 21    cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-Rule 22    do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-Rule 23    do_condition -> OPEN_PAR ID constant operation CLOSE_PAR
-Rule 24    operation -> OPEN_PAR symbol expression expression CLOSE_PAR
-Rule 25    comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR
-Rule 26    read -> OPEN_PAR READ CLOSE_PAR
-Rule 27    display -> OPEN_PAR DISPLAY expression CLOSE_PAR
-Rule 28    cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR
-Rule 29    list_manip -> OPEN_PAR list_op list CLOSE_PAR
-Rule 30    list_expression -> list
-Rule 31    list_expression -> constant
-Rule 32    list_op -> CDR
-Rule 33    list_op -> CAR
-Rule 34    list_op -> LAST
-Rule 35    list -> cons
-Rule 36    list -> EMPTY
-Rule 37    list -> ID
-Rule 38    symbol -> comparison
-Rule 39    symbol -> boolean
-Rule 40    symbol -> ADD
-Rule 41    symbol -> MINUS
-Rule 42    symbol -> DIVIDE
-Rule 43    symbol -> MULTIPLY
-Rule 44    symbol -> REMAINDER
-Rule 45    boolean -> TRUE
-Rule 46    boolean -> FALSE
-Rule 47    comparison -> EQQUES
-Rule 48    comparison -> NEQQUES
-Rule 49    comparison -> EQUALS
-Rule 50    comparison -> GREATER
-Rule 51    comparison -> LESS
-Rule 52    comparison -> GREATER_EQUAL
-Rule 53    comparison -> LESS_EQUAL
-Rule 54    constant -> INT
-Rule 55    constant -> FLOAT
-Rule 56    constant -> CHARACTER
-Rule 57    constant -> STRING
+Rule 12    expression -> comparison_expression
+Rule 13    expression -> operation
+Rule 14    expression -> ID
+Rule 15    expression -> read
+Rule 16    expression -> display
+Rule 17    expression -> cons
+Rule 18    expression -> list_manip
+Rule 19    if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR
+Rule 20    if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+Rule 21    cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+Rule 22    cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+Rule 23    do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+Rule 24    id_set -> OPEN_PAR ID constant CLOSE_PAR
+Rule 25    operation -> OPEN_PAR symbol expression expression CLOSE_PAR
+Rule 26    comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR
+Rule 27    read -> READ
+Rule 28    read -> OPEN_PAR READ CLOSE_PAR
+Rule 29    display -> OPEN_PAR DISPLAY expression CLOSE_PAR
+Rule 30    cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR
+Rule 31    list_manip -> OPEN_PAR list_op list CLOSE_PAR
+Rule 32    list_expression -> list
+Rule 33    list_expression -> constant
+Rule 34    list_op -> CDR
+Rule 35    list_op -> CAR
+Rule 36    list_op -> LAST
+Rule 37    list -> cons
+Rule 38    list -> list_manip
+Rule 39    list -> EMPTY
+Rule 40    list -> ID
+Rule 41    symbol -> ADD
+Rule 42    symbol -> MINUS
+Rule 43    symbol -> DIVIDE
+Rule 44    symbol -> MULTIPLY
+Rule 45    symbol -> REMAINDER
+Rule 46    boolean -> TRUE
+Rule 47    boolean -> FALSE
+Rule 48    comparison -> EQQUES
+Rule 49    comparison -> NEQQUES
+Rule 50    comparison -> EQUALS
+Rule 51    comparison -> GREATER
+Rule 52    comparison -> LESS
+Rule 53    comparison -> GREATER_EQUAL
+Rule 54    comparison -> LESS_EQUAL
+Rule 55    constant -> INT
+Rule 56    constant -> FLOAT
+Rule 57    constant -> CHARACTER
+Rule 58    constant -> STRING
+Rule 59    constant -> boolean
 
 Terminals, with rules where they appear
 
-ADD                  : 40
-CAR                  : 33
-CDR                  : 32
-CHARACTER            : 56
-CLOSE_BRA            : 20 21 21
-CLOSE_PAR            : 5 18 19 20 21 22 23 24 25 26 27 28 29
+ADD                  : 41
+CAR                  : 35
+CDR                  : 34
+CHARACTER            : 57
+CLOSE_BRA            : 21 22 22
+CLOSE_PAR            : 5 19 20 21 22 23 24 25 26 28 29 30 31
 COMMENT              : 
 COM_BLOCK            : 
-COND                 : 20 21
-CONS                 : 28
+COND                 : 21 22
+CONS                 : 30
 DEFINE               : 5
-DISPLAY              : 27
-DIVIDE               : 42
-DO                   : 22
-ELSE                 : 21
-EMPTY                : 36
-EQQUES               : 47
-EQUALS               : 49
-FALSE                : 46
-FLOAT                : 55
-GREATER              : 50
-GREATER_EQUAL        : 52
-ID                   : 5 13 23 37
-IF                   : 18 19
-INT                  : 54
-LAST                 : 34
-LESS                 : 51
-LESS_EQUAL           : 53
-MINUS                : 41
-MULTIPLY             : 43
-NEQQUES              : 48
+DISPLAY              : 29
+DIVIDE               : 43
+DO                   : 23
+ELSE                 : 22
+EMPTY                : 39
+EQQUES               : 48
+EQUALS               : 50
+FALSE                : 47
+FLOAT                : 56
+GREATER              : 51
+GREATER_EQUAL        : 53
+ID                   : 5 14 24 40
+IF                   : 19 20
+INT                  : 55
+LAST                 : 36
+LESS                 : 52
+LESS_EQUAL           : 54
+MINUS                : 42
+MULTIPLY             : 44
+NEQQUES              : 49
 NEW_LINE             : 
-OPEN_BRA             : 20 21 21
-OPEN_PAR             : 5 18 19 20 21 22 23 24 25 26 27 28 29
-READ                 : 26
-REMAINDER            : 44
+OPEN_BRA             : 21 22 22
+OPEN_PAR             : 5 19 20 21 22 23 24 25 26 28 29 30 31
+READ                 : 27 28
+REMAINDER            : 45
 SPACE                : 
-STRING               : 57
-TRUE                 : 45
+STRING               : 58
+TRUE                 : 46
 error                : 
 
 Nonterminals, with rules where they appear
 
 body                 : 5
-boolean              : 39
-comparison           : 25 38
-comparison_expression : 18 19 20 21 22
+boolean              : 59
+comparison           : 26
+comparison_expression : 12 19 20 21 22 23
 cond_expression      : 11
-cons                 : 16 35
-constant             : 8 23 28 31
+cons                 : 17 37
+constant             : 8 24 30 33
 definition           : 2 4 4 7
-display              : 15
-do_condition         : 22
+display              : 16
 do_expression        : 10
-expression           : 3 6 18 19 19 20 21 21 22 24 24 25 25 27
+expression           : 3 6 19 20 20 21 22 22 23 25 25 26 26 29
 form                 : 1
+id_set               : 23
 if_expression        : 9
-list                 : 29 30
-list_expression      : 28
-list_manip           : 17
-list_op              : 29
-operation            : 12 23
+list                 : 31 32
+list_expression      : 30
+list_manip           : 18 38
+list_op              : 31
+operation            : 13 23
 program              : 0
-read                 : 14
-symbol               : 24
+read                 : 15
+symbol               : 25
 
 Parsing method: SLR
 
@@ -150,33 +152,42 @@ state 0
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
     OPEN_PAR        shift and go to state 5
     ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
     program                        shift and go to state 1
     form                           shift and go to state 2
@@ -186,11 +197,13 @@ state 0
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 1
 
@@ -212,9 +225,9 @@ state 3
     (5) definition -> . OPEN_PAR DEFINE ID body CLOSE_PAR
 
     $end            reduce using rule 2 (form -> definition .)
-    OPEN_PAR        shift and go to state 21
+    OPEN_PAR        shift and go to state 26
 
-    definition                     shift and go to state 20
+    definition                     shift and go to state 25
 
 state 4
 
@@ -226,79 +239,76 @@ state 4
 state 5
 
     (5) definition -> OPEN_PAR . DEFINE ID body CLOSE_PAR
-    (18) if_expression -> OPEN_PAR . IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> OPEN_PAR . IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> OPEN_PAR . DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
-    (26) read -> OPEN_PAR . READ CLOSE_PAR
-    (27) display -> OPEN_PAR . DISPLAY expression CLOSE_PAR
-    (28) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> OPEN_PAR . list_op list CLOSE_PAR
-    (38) symbol -> . comparison
-    (39) symbol -> . boolean
-    (40) symbol -> . ADD
-    (41) symbol -> . MINUS
-    (42) symbol -> . DIVIDE
-    (43) symbol -> . MULTIPLY
-    (44) symbol -> . REMAINDER
-    (32) list_op -> . CDR
-    (33) list_op -> . CAR
-    (34) list_op -> . LAST
-    (47) comparison -> . EQQUES
-    (48) comparison -> . NEQQUES
-    (49) comparison -> . EQUALS
-    (50) comparison -> . GREATER
-    (51) comparison -> . LESS
-    (52) comparison -> . GREATER_EQUAL
-    (53) comparison -> . LESS_EQUAL
-    (45) boolean -> . TRUE
-    (46) boolean -> . FALSE
+    (19) if_expression -> OPEN_PAR . IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> OPEN_PAR . IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> OPEN_PAR . DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> OPEN_PAR . comparison expression expression CLOSE_PAR
+    (25) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
+    (28) read -> OPEN_PAR . READ CLOSE_PAR
+    (29) display -> OPEN_PAR . DISPLAY expression CLOSE_PAR
+    (30) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> OPEN_PAR . list_op list CLOSE_PAR
+    (48) comparison -> . EQQUES
+    (49) comparison -> . NEQQUES
+    (50) comparison -> . EQUALS
+    (51) comparison -> . GREATER
+    (52) comparison -> . LESS
+    (53) comparison -> . GREATER_EQUAL
+    (54) comparison -> . LESS_EQUAL
+    (41) symbol -> . ADD
+    (42) symbol -> . MINUS
+    (43) symbol -> . DIVIDE
+    (44) symbol -> . MULTIPLY
+    (45) symbol -> . REMAINDER
+    (34) list_op -> . CDR
+    (35) list_op -> . CAR
+    (36) list_op -> . LAST
 
-    DEFINE          shift and go to state 22
-    IF              shift and go to state 23
-    DO              shift and go to state 24
-    COND            shift and go to state 25
-    READ            shift and go to state 27
-    DISPLAY         shift and go to state 28
-    CONS            shift and go to state 29
-    ADD             shift and go to state 33
-    MINUS           shift and go to state 34
-    DIVIDE          shift and go to state 35
-    MULTIPLY        shift and go to state 36
-    REMAINDER       shift and go to state 37
-    CDR             shift and go to state 38
-    CAR             shift and go to state 39
-    LAST            shift and go to state 40
-    EQQUES          shift and go to state 41
-    NEQQUES         shift and go to state 42
-    EQUALS          shift and go to state 43
-    GREATER         shift and go to state 44
-    LESS            shift and go to state 45
-    GREATER_EQUAL   shift and go to state 46
-    LESS_EQUAL      shift and go to state 47
-    TRUE            shift and go to state 48
-    FALSE           shift and go to state 49
+    DEFINE          shift and go to state 27
+    IF              shift and go to state 28
+    DO              shift and go to state 29
+    COND            shift and go to state 30
+    READ            shift and go to state 33
+    DISPLAY         shift and go to state 34
+    CONS            shift and go to state 35
+    EQQUES          shift and go to state 37
+    NEQQUES         shift and go to state 38
+    EQUALS          shift and go to state 39
+    GREATER         shift and go to state 40
+    LESS            shift and go to state 41
+    GREATER_EQUAL   shift and go to state 42
+    LESS_EQUAL      shift and go to state 43
+    ADD             shift and go to state 44
+    MINUS           shift and go to state 45
+    DIVIDE          shift and go to state 46
+    MULTIPLY        shift and go to state 47
+    REMAINDER       shift and go to state 48
+    CDR             shift and go to state 49
+    CAR             shift and go to state 50
+    LAST            shift and go to state 51
 
-    symbol                         shift and go to state 26
-    list_op                        shift and go to state 30
     comparison                     shift and go to state 31
-    boolean                        shift and go to state 32
+    symbol                         shift and go to state 32
+    list_op                        shift and go to state 36
 
 state 6
 
-    (13) expression -> ID .
+    (14) expression -> ID .
 
-    $end            reduce using rule 13 (expression -> ID .)
-    CLOSE_PAR       reduce using rule 13 (expression -> ID .)
-    ID              reduce using rule 13 (expression -> ID .)
-    INT             reduce using rule 13 (expression -> ID .)
-    FLOAT           reduce using rule 13 (expression -> ID .)
-    CHARACTER       reduce using rule 13 (expression -> ID .)
-    STRING          reduce using rule 13 (expression -> ID .)
-    OPEN_PAR        reduce using rule 13 (expression -> ID .)
-    CLOSE_BRA       reduce using rule 13 (expression -> ID .)
+    $end            reduce using rule 14 (expression -> ID .)
+    CLOSE_PAR       reduce using rule 14 (expression -> ID .)
+    ID              reduce using rule 14 (expression -> ID .)
+    INT             reduce using rule 14 (expression -> ID .)
+    FLOAT           reduce using rule 14 (expression -> ID .)
+    CHARACTER       reduce using rule 14 (expression -> ID .)
+    STRING          reduce using rule 14 (expression -> ID .)
+    OPEN_PAR        reduce using rule 14 (expression -> ID .)
+    READ            reduce using rule 14 (expression -> ID .)
+    TRUE            reduce using rule 14 (expression -> ID .)
+    FALSE           reduce using rule 14 (expression -> ID .)
+    CLOSE_BRA       reduce using rule 14 (expression -> ID .)
 
 
 state 7
@@ -313,6 +323,9 @@ state 7
     CHARACTER       reduce using rule 8 (expression -> constant .)
     STRING          reduce using rule 8 (expression -> constant .)
     OPEN_PAR        reduce using rule 8 (expression -> constant .)
+    READ            reduce using rule 8 (expression -> constant .)
+    TRUE            reduce using rule 8 (expression -> constant .)
+    FALSE           reduce using rule 8 (expression -> constant .)
     CLOSE_BRA       reduce using rule 8 (expression -> constant .)
 
 
@@ -328,6 +341,9 @@ state 8
     CHARACTER       reduce using rule 9 (expression -> if_expression .)
     STRING          reduce using rule 9 (expression -> if_expression .)
     OPEN_PAR        reduce using rule 9 (expression -> if_expression .)
+    READ            reduce using rule 9 (expression -> if_expression .)
+    TRUE            reduce using rule 9 (expression -> if_expression .)
+    FALSE           reduce using rule 9 (expression -> if_expression .)
     CLOSE_BRA       reduce using rule 9 (expression -> if_expression .)
 
 
@@ -343,6 +359,9 @@ state 9
     CHARACTER       reduce using rule 10 (expression -> do_expression .)
     STRING          reduce using rule 10 (expression -> do_expression .)
     OPEN_PAR        reduce using rule 10 (expression -> do_expression .)
+    READ            reduce using rule 10 (expression -> do_expression .)
+    TRUE            reduce using rule 10 (expression -> do_expression .)
+    FALSE           reduce using rule 10 (expression -> do_expression .)
     CLOSE_BRA       reduce using rule 10 (expression -> do_expression .)
 
 
@@ -358,545 +377,744 @@ state 10
     CHARACTER       reduce using rule 11 (expression -> cond_expression .)
     STRING          reduce using rule 11 (expression -> cond_expression .)
     OPEN_PAR        reduce using rule 11 (expression -> cond_expression .)
+    READ            reduce using rule 11 (expression -> cond_expression .)
+    TRUE            reduce using rule 11 (expression -> cond_expression .)
+    FALSE           reduce using rule 11 (expression -> cond_expression .)
     CLOSE_BRA       reduce using rule 11 (expression -> cond_expression .)
 
 
 state 11
 
-    (12) expression -> operation .
+    (12) expression -> comparison_expression .
 
-    $end            reduce using rule 12 (expression -> operation .)
-    CLOSE_PAR       reduce using rule 12 (expression -> operation .)
-    ID              reduce using rule 12 (expression -> operation .)
-    INT             reduce using rule 12 (expression -> operation .)
-    FLOAT           reduce using rule 12 (expression -> operation .)
-    CHARACTER       reduce using rule 12 (expression -> operation .)
-    STRING          reduce using rule 12 (expression -> operation .)
-    OPEN_PAR        reduce using rule 12 (expression -> operation .)
-    CLOSE_BRA       reduce using rule 12 (expression -> operation .)
+    $end            reduce using rule 12 (expression -> comparison_expression .)
+    CLOSE_PAR       reduce using rule 12 (expression -> comparison_expression .)
+    ID              reduce using rule 12 (expression -> comparison_expression .)
+    INT             reduce using rule 12 (expression -> comparison_expression .)
+    FLOAT           reduce using rule 12 (expression -> comparison_expression .)
+    CHARACTER       reduce using rule 12 (expression -> comparison_expression .)
+    STRING          reduce using rule 12 (expression -> comparison_expression .)
+    OPEN_PAR        reduce using rule 12 (expression -> comparison_expression .)
+    READ            reduce using rule 12 (expression -> comparison_expression .)
+    TRUE            reduce using rule 12 (expression -> comparison_expression .)
+    FALSE           reduce using rule 12 (expression -> comparison_expression .)
+    CLOSE_BRA       reduce using rule 12 (expression -> comparison_expression .)
 
 
 state 12
 
-    (14) expression -> read .
+    (13) expression -> operation .
 
-    $end            reduce using rule 14 (expression -> read .)
-    CLOSE_PAR       reduce using rule 14 (expression -> read .)
-    ID              reduce using rule 14 (expression -> read .)
-    INT             reduce using rule 14 (expression -> read .)
-    FLOAT           reduce using rule 14 (expression -> read .)
-    CHARACTER       reduce using rule 14 (expression -> read .)
-    STRING          reduce using rule 14 (expression -> read .)
-    OPEN_PAR        reduce using rule 14 (expression -> read .)
-    CLOSE_BRA       reduce using rule 14 (expression -> read .)
+    $end            reduce using rule 13 (expression -> operation .)
+    CLOSE_PAR       reduce using rule 13 (expression -> operation .)
+    ID              reduce using rule 13 (expression -> operation .)
+    INT             reduce using rule 13 (expression -> operation .)
+    FLOAT           reduce using rule 13 (expression -> operation .)
+    CHARACTER       reduce using rule 13 (expression -> operation .)
+    STRING          reduce using rule 13 (expression -> operation .)
+    OPEN_PAR        reduce using rule 13 (expression -> operation .)
+    READ            reduce using rule 13 (expression -> operation .)
+    TRUE            reduce using rule 13 (expression -> operation .)
+    FALSE           reduce using rule 13 (expression -> operation .)
+    CLOSE_BRA       reduce using rule 13 (expression -> operation .)
 
 
 state 13
 
-    (15) expression -> display .
+    (15) expression -> read .
 
-    $end            reduce using rule 15 (expression -> display .)
-    CLOSE_PAR       reduce using rule 15 (expression -> display .)
-    ID              reduce using rule 15 (expression -> display .)
-    INT             reduce using rule 15 (expression -> display .)
-    FLOAT           reduce using rule 15 (expression -> display .)
-    CHARACTER       reduce using rule 15 (expression -> display .)
-    STRING          reduce using rule 15 (expression -> display .)
-    OPEN_PAR        reduce using rule 15 (expression -> display .)
-    CLOSE_BRA       reduce using rule 15 (expression -> display .)
+    $end            reduce using rule 15 (expression -> read .)
+    CLOSE_PAR       reduce using rule 15 (expression -> read .)
+    ID              reduce using rule 15 (expression -> read .)
+    INT             reduce using rule 15 (expression -> read .)
+    FLOAT           reduce using rule 15 (expression -> read .)
+    CHARACTER       reduce using rule 15 (expression -> read .)
+    STRING          reduce using rule 15 (expression -> read .)
+    OPEN_PAR        reduce using rule 15 (expression -> read .)
+    READ            reduce using rule 15 (expression -> read .)
+    TRUE            reduce using rule 15 (expression -> read .)
+    FALSE           reduce using rule 15 (expression -> read .)
+    CLOSE_BRA       reduce using rule 15 (expression -> read .)
 
 
 state 14
 
-    (16) expression -> cons .
+    (16) expression -> display .
 
-    $end            reduce using rule 16 (expression -> cons .)
-    CLOSE_PAR       reduce using rule 16 (expression -> cons .)
-    ID              reduce using rule 16 (expression -> cons .)
-    INT             reduce using rule 16 (expression -> cons .)
-    FLOAT           reduce using rule 16 (expression -> cons .)
-    CHARACTER       reduce using rule 16 (expression -> cons .)
-    STRING          reduce using rule 16 (expression -> cons .)
-    OPEN_PAR        reduce using rule 16 (expression -> cons .)
-    CLOSE_BRA       reduce using rule 16 (expression -> cons .)
+    $end            reduce using rule 16 (expression -> display .)
+    CLOSE_PAR       reduce using rule 16 (expression -> display .)
+    ID              reduce using rule 16 (expression -> display .)
+    INT             reduce using rule 16 (expression -> display .)
+    FLOAT           reduce using rule 16 (expression -> display .)
+    CHARACTER       reduce using rule 16 (expression -> display .)
+    STRING          reduce using rule 16 (expression -> display .)
+    OPEN_PAR        reduce using rule 16 (expression -> display .)
+    READ            reduce using rule 16 (expression -> display .)
+    TRUE            reduce using rule 16 (expression -> display .)
+    FALSE           reduce using rule 16 (expression -> display .)
+    CLOSE_BRA       reduce using rule 16 (expression -> display .)
 
 
 state 15
 
-    (17) expression -> list_manip .
+    (17) expression -> cons .
 
-    $end            reduce using rule 17 (expression -> list_manip .)
-    CLOSE_PAR       reduce using rule 17 (expression -> list_manip .)
-    ID              reduce using rule 17 (expression -> list_manip .)
-    INT             reduce using rule 17 (expression -> list_manip .)
-    FLOAT           reduce using rule 17 (expression -> list_manip .)
-    CHARACTER       reduce using rule 17 (expression -> list_manip .)
-    STRING          reduce using rule 17 (expression -> list_manip .)
-    OPEN_PAR        reduce using rule 17 (expression -> list_manip .)
-    CLOSE_BRA       reduce using rule 17 (expression -> list_manip .)
+    $end            reduce using rule 17 (expression -> cons .)
+    CLOSE_PAR       reduce using rule 17 (expression -> cons .)
+    ID              reduce using rule 17 (expression -> cons .)
+    INT             reduce using rule 17 (expression -> cons .)
+    FLOAT           reduce using rule 17 (expression -> cons .)
+    CHARACTER       reduce using rule 17 (expression -> cons .)
+    STRING          reduce using rule 17 (expression -> cons .)
+    OPEN_PAR        reduce using rule 17 (expression -> cons .)
+    READ            reduce using rule 17 (expression -> cons .)
+    TRUE            reduce using rule 17 (expression -> cons .)
+    FALSE           reduce using rule 17 (expression -> cons .)
+    CLOSE_BRA       reduce using rule 17 (expression -> cons .)
 
 
 state 16
 
-    (54) constant -> INT .
+    (18) expression -> list_manip .
 
-    $end            reduce using rule 54 (constant -> INT .)
-    CLOSE_PAR       reduce using rule 54 (constant -> INT .)
-    OPEN_PAR        reduce using rule 54 (constant -> INT .)
-    INT             reduce using rule 54 (constant -> INT .)
-    FLOAT           reduce using rule 54 (constant -> INT .)
-    CHARACTER       reduce using rule 54 (constant -> INT .)
-    STRING          reduce using rule 54 (constant -> INT .)
-    EMPTY           reduce using rule 54 (constant -> INT .)
-    ID              reduce using rule 54 (constant -> INT .)
-    CLOSE_BRA       reduce using rule 54 (constant -> INT .)
+    $end            reduce using rule 18 (expression -> list_manip .)
+    CLOSE_PAR       reduce using rule 18 (expression -> list_manip .)
+    ID              reduce using rule 18 (expression -> list_manip .)
+    INT             reduce using rule 18 (expression -> list_manip .)
+    FLOAT           reduce using rule 18 (expression -> list_manip .)
+    CHARACTER       reduce using rule 18 (expression -> list_manip .)
+    STRING          reduce using rule 18 (expression -> list_manip .)
+    OPEN_PAR        reduce using rule 18 (expression -> list_manip .)
+    READ            reduce using rule 18 (expression -> list_manip .)
+    TRUE            reduce using rule 18 (expression -> list_manip .)
+    FALSE           reduce using rule 18 (expression -> list_manip .)
+    CLOSE_BRA       reduce using rule 18 (expression -> list_manip .)
 
 
 state 17
 
-    (55) constant -> FLOAT .
+    (55) constant -> INT .
 
-    $end            reduce using rule 55 (constant -> FLOAT .)
-    CLOSE_PAR       reduce using rule 55 (constant -> FLOAT .)
-    OPEN_PAR        reduce using rule 55 (constant -> FLOAT .)
-    INT             reduce using rule 55 (constant -> FLOAT .)
-    FLOAT           reduce using rule 55 (constant -> FLOAT .)
-    CHARACTER       reduce using rule 55 (constant -> FLOAT .)
-    STRING          reduce using rule 55 (constant -> FLOAT .)
-    EMPTY           reduce using rule 55 (constant -> FLOAT .)
-    ID              reduce using rule 55 (constant -> FLOAT .)
-    CLOSE_BRA       reduce using rule 55 (constant -> FLOAT .)
+    $end            reduce using rule 55 (constant -> INT .)
+    CLOSE_PAR       reduce using rule 55 (constant -> INT .)
+    INT             reduce using rule 55 (constant -> INT .)
+    FLOAT           reduce using rule 55 (constant -> INT .)
+    CHARACTER       reduce using rule 55 (constant -> INT .)
+    STRING          reduce using rule 55 (constant -> INT .)
+    OPEN_PAR        reduce using rule 55 (constant -> INT .)
+    EMPTY           reduce using rule 55 (constant -> INT .)
+    ID              reduce using rule 55 (constant -> INT .)
+    TRUE            reduce using rule 55 (constant -> INT .)
+    FALSE           reduce using rule 55 (constant -> INT .)
+    READ            reduce using rule 55 (constant -> INT .)
+    CLOSE_BRA       reduce using rule 55 (constant -> INT .)
 
 
 state 18
 
-    (56) constant -> CHARACTER .
+    (56) constant -> FLOAT .
 
-    $end            reduce using rule 56 (constant -> CHARACTER .)
-    CLOSE_PAR       reduce using rule 56 (constant -> CHARACTER .)
-    OPEN_PAR        reduce using rule 56 (constant -> CHARACTER .)
-    INT             reduce using rule 56 (constant -> CHARACTER .)
-    FLOAT           reduce using rule 56 (constant -> CHARACTER .)
-    CHARACTER       reduce using rule 56 (constant -> CHARACTER .)
-    STRING          reduce using rule 56 (constant -> CHARACTER .)
-    EMPTY           reduce using rule 56 (constant -> CHARACTER .)
-    ID              reduce using rule 56 (constant -> CHARACTER .)
-    CLOSE_BRA       reduce using rule 56 (constant -> CHARACTER .)
+    $end            reduce using rule 56 (constant -> FLOAT .)
+    CLOSE_PAR       reduce using rule 56 (constant -> FLOAT .)
+    INT             reduce using rule 56 (constant -> FLOAT .)
+    FLOAT           reduce using rule 56 (constant -> FLOAT .)
+    CHARACTER       reduce using rule 56 (constant -> FLOAT .)
+    STRING          reduce using rule 56 (constant -> FLOAT .)
+    OPEN_PAR        reduce using rule 56 (constant -> FLOAT .)
+    EMPTY           reduce using rule 56 (constant -> FLOAT .)
+    ID              reduce using rule 56 (constant -> FLOAT .)
+    TRUE            reduce using rule 56 (constant -> FLOAT .)
+    FALSE           reduce using rule 56 (constant -> FLOAT .)
+    READ            reduce using rule 56 (constant -> FLOAT .)
+    CLOSE_BRA       reduce using rule 56 (constant -> FLOAT .)
 
 
 state 19
 
-    (57) constant -> STRING .
+    (57) constant -> CHARACTER .
 
-    $end            reduce using rule 57 (constant -> STRING .)
-    CLOSE_PAR       reduce using rule 57 (constant -> STRING .)
-    OPEN_PAR        reduce using rule 57 (constant -> STRING .)
-    INT             reduce using rule 57 (constant -> STRING .)
-    FLOAT           reduce using rule 57 (constant -> STRING .)
-    CHARACTER       reduce using rule 57 (constant -> STRING .)
-    STRING          reduce using rule 57 (constant -> STRING .)
-    EMPTY           reduce using rule 57 (constant -> STRING .)
-    ID              reduce using rule 57 (constant -> STRING .)
-    CLOSE_BRA       reduce using rule 57 (constant -> STRING .)
+    $end            reduce using rule 57 (constant -> CHARACTER .)
+    CLOSE_PAR       reduce using rule 57 (constant -> CHARACTER .)
+    INT             reduce using rule 57 (constant -> CHARACTER .)
+    FLOAT           reduce using rule 57 (constant -> CHARACTER .)
+    CHARACTER       reduce using rule 57 (constant -> CHARACTER .)
+    STRING          reduce using rule 57 (constant -> CHARACTER .)
+    OPEN_PAR        reduce using rule 57 (constant -> CHARACTER .)
+    EMPTY           reduce using rule 57 (constant -> CHARACTER .)
+    ID              reduce using rule 57 (constant -> CHARACTER .)
+    TRUE            reduce using rule 57 (constant -> CHARACTER .)
+    FALSE           reduce using rule 57 (constant -> CHARACTER .)
+    READ            reduce using rule 57 (constant -> CHARACTER .)
+    CLOSE_BRA       reduce using rule 57 (constant -> CHARACTER .)
 
 
 state 20
+
+    (58) constant -> STRING .
+
+    $end            reduce using rule 58 (constant -> STRING .)
+    CLOSE_PAR       reduce using rule 58 (constant -> STRING .)
+    INT             reduce using rule 58 (constant -> STRING .)
+    FLOAT           reduce using rule 58 (constant -> STRING .)
+    CHARACTER       reduce using rule 58 (constant -> STRING .)
+    STRING          reduce using rule 58 (constant -> STRING .)
+    OPEN_PAR        reduce using rule 58 (constant -> STRING .)
+    EMPTY           reduce using rule 58 (constant -> STRING .)
+    ID              reduce using rule 58 (constant -> STRING .)
+    TRUE            reduce using rule 58 (constant -> STRING .)
+    FALSE           reduce using rule 58 (constant -> STRING .)
+    READ            reduce using rule 58 (constant -> STRING .)
+    CLOSE_BRA       reduce using rule 58 (constant -> STRING .)
+
+
+state 21
+
+    (59) constant -> boolean .
+
+    $end            reduce using rule 59 (constant -> boolean .)
+    CLOSE_PAR       reduce using rule 59 (constant -> boolean .)
+    INT             reduce using rule 59 (constant -> boolean .)
+    FLOAT           reduce using rule 59 (constant -> boolean .)
+    CHARACTER       reduce using rule 59 (constant -> boolean .)
+    STRING          reduce using rule 59 (constant -> boolean .)
+    OPEN_PAR        reduce using rule 59 (constant -> boolean .)
+    EMPTY           reduce using rule 59 (constant -> boolean .)
+    ID              reduce using rule 59 (constant -> boolean .)
+    TRUE            reduce using rule 59 (constant -> boolean .)
+    FALSE           reduce using rule 59 (constant -> boolean .)
+    READ            reduce using rule 59 (constant -> boolean .)
+    CLOSE_BRA       reduce using rule 59 (constant -> boolean .)
+
+
+state 22
+
+    (27) read -> READ .
+
+    $end            reduce using rule 27 (read -> READ .)
+    CLOSE_PAR       reduce using rule 27 (read -> READ .)
+    ID              reduce using rule 27 (read -> READ .)
+    INT             reduce using rule 27 (read -> READ .)
+    FLOAT           reduce using rule 27 (read -> READ .)
+    CHARACTER       reduce using rule 27 (read -> READ .)
+    STRING          reduce using rule 27 (read -> READ .)
+    OPEN_PAR        reduce using rule 27 (read -> READ .)
+    READ            reduce using rule 27 (read -> READ .)
+    TRUE            reduce using rule 27 (read -> READ .)
+    FALSE           reduce using rule 27 (read -> READ .)
+    CLOSE_BRA       reduce using rule 27 (read -> READ .)
+
+
+state 23
+
+    (46) boolean -> TRUE .
+
+    $end            reduce using rule 46 (boolean -> TRUE .)
+    CLOSE_PAR       reduce using rule 46 (boolean -> TRUE .)
+    INT             reduce using rule 46 (boolean -> TRUE .)
+    FLOAT           reduce using rule 46 (boolean -> TRUE .)
+    CHARACTER       reduce using rule 46 (boolean -> TRUE .)
+    STRING          reduce using rule 46 (boolean -> TRUE .)
+    OPEN_PAR        reduce using rule 46 (boolean -> TRUE .)
+    EMPTY           reduce using rule 46 (boolean -> TRUE .)
+    ID              reduce using rule 46 (boolean -> TRUE .)
+    TRUE            reduce using rule 46 (boolean -> TRUE .)
+    FALSE           reduce using rule 46 (boolean -> TRUE .)
+    READ            reduce using rule 46 (boolean -> TRUE .)
+    CLOSE_BRA       reduce using rule 46 (boolean -> TRUE .)
+
+
+state 24
+
+    (47) boolean -> FALSE .
+
+    $end            reduce using rule 47 (boolean -> FALSE .)
+    CLOSE_PAR       reduce using rule 47 (boolean -> FALSE .)
+    INT             reduce using rule 47 (boolean -> FALSE .)
+    FLOAT           reduce using rule 47 (boolean -> FALSE .)
+    CHARACTER       reduce using rule 47 (boolean -> FALSE .)
+    STRING          reduce using rule 47 (boolean -> FALSE .)
+    OPEN_PAR        reduce using rule 47 (boolean -> FALSE .)
+    EMPTY           reduce using rule 47 (boolean -> FALSE .)
+    ID              reduce using rule 47 (boolean -> FALSE .)
+    TRUE            reduce using rule 47 (boolean -> FALSE .)
+    FALSE           reduce using rule 47 (boolean -> FALSE .)
+    READ            reduce using rule 47 (boolean -> FALSE .)
+    CLOSE_BRA       reduce using rule 47 (boolean -> FALSE .)
+
+
+state 25
 
     (4) form -> definition definition .
 
     $end            reduce using rule 4 (form -> definition definition .)
 
 
-state 21
+state 26
 
     (5) definition -> OPEN_PAR . DEFINE ID body CLOSE_PAR
 
-    DEFINE          shift and go to state 22
+    DEFINE          shift and go to state 27
 
-
-state 22
-
-    (5) definition -> OPEN_PAR DEFINE . ID body CLOSE_PAR
-
-    ID              shift and go to state 50
-
-
-state 23
-
-    (18) if_expression -> OPEN_PAR IF . comparison_expression expression CLOSE_PAR
-    (19) if_expression -> OPEN_PAR IF . comparison_expression expression expression CLOSE_PAR
-    (25) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
-
-    OPEN_PAR        shift and go to state 51
-
-    comparison_expression          shift and go to state 52
-
-state 24
-
-    (22) do_expression -> OPEN_PAR DO . do_condition comparison_expression expression CLOSE_PAR
-    (23) do_condition -> . OPEN_PAR ID constant operation CLOSE_PAR
-
-    OPEN_PAR        shift and go to state 53
-
-    do_condition                   shift and go to state 54
-
-state 25
-
-    (20) cond_expression -> OPEN_PAR COND . OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR COND . OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-
-    OPEN_BRA        shift and go to state 55
-
-
-state 26
-
-    (24) operation -> OPEN_PAR symbol . expression expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 57
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
 
 state 27
 
-    (26) read -> OPEN_PAR READ . CLOSE_PAR
+    (5) definition -> OPEN_PAR DEFINE . ID body CLOSE_PAR
 
-    CLOSE_PAR       shift and go to state 58
+    ID              shift and go to state 52
 
 
 state 28
 
-    (27) display -> OPEN_PAR DISPLAY . expression CLOSE_PAR
+    (19) if_expression -> OPEN_PAR IF . comparison_expression expression CLOSE_PAR
+    (20) if_expression -> OPEN_PAR IF . comparison_expression expression expression CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+
+    OPEN_PAR        shift and go to state 53
+
+    comparison_expression          shift and go to state 54
+
+state 29
+
+    (23) do_expression -> OPEN_PAR DO . id_set operation comparison_expression expression CLOSE_PAR
+    (24) id_set -> . OPEN_PAR ID constant CLOSE_PAR
+
+    OPEN_PAR        shift and go to state 55
+
+    id_set                         shift and go to state 56
+
+state 30
+
+    (21) cond_expression -> OPEN_PAR COND . OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND . OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+
+    OPEN_BRA        shift and go to state 57
+
+
+state 31
+
+    (26) comparison_expression -> OPEN_PAR comparison . expression expression CLOSE_PAR
     (8) expression -> . constant
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
     ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
     expression                     shift and go to state 59
     constant                       shift and go to state 7
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
-state 29
-
-    (28) cons -> OPEN_PAR CONS . constant list_expression CLOSE_PAR
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-
-    constant                       shift and go to state 60
-
-state 30
-
-    (29) list_manip -> OPEN_PAR list_op . list CLOSE_PAR
-    (35) list -> . cons
-    (36) list -> . EMPTY
-    (37) list -> . ID
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-
-    EMPTY           shift and go to state 64
-    ID              shift and go to state 65
-    OPEN_PAR        shift and go to state 61
-
-    list                           shift and go to state 62
-    cons                           shift and go to state 63
-
-state 31
-
-    (38) symbol -> comparison .
-
-    ID              reduce using rule 38 (symbol -> comparison .)
-    INT             reduce using rule 38 (symbol -> comparison .)
-    FLOAT           reduce using rule 38 (symbol -> comparison .)
-    CHARACTER       reduce using rule 38 (symbol -> comparison .)
-    STRING          reduce using rule 38 (symbol -> comparison .)
-    OPEN_PAR        reduce using rule 38 (symbol -> comparison .)
-
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 32
 
-    (39) symbol -> boolean .
+    (25) operation -> OPEN_PAR symbol . expression expression CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    ID              reduce using rule 39 (symbol -> boolean .)
-    INT             reduce using rule 39 (symbol -> boolean .)
-    FLOAT           reduce using rule 39 (symbol -> boolean .)
-    CHARACTER       reduce using rule 39 (symbol -> boolean .)
-    STRING          reduce using rule 39 (symbol -> boolean .)
-    OPEN_PAR        reduce using rule 39 (symbol -> boolean .)
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    expression                     shift and go to state 60
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 33
 
-    (40) symbol -> ADD .
+    (28) read -> OPEN_PAR READ . CLOSE_PAR
 
-    ID              reduce using rule 40 (symbol -> ADD .)
-    INT             reduce using rule 40 (symbol -> ADD .)
-    FLOAT           reduce using rule 40 (symbol -> ADD .)
-    CHARACTER       reduce using rule 40 (symbol -> ADD .)
-    STRING          reduce using rule 40 (symbol -> ADD .)
-    OPEN_PAR        reduce using rule 40 (symbol -> ADD .)
+    CLOSE_PAR       shift and go to state 61
 
 
 state 34
 
-    (41) symbol -> MINUS .
+    (29) display -> OPEN_PAR DISPLAY . expression CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    ID              reduce using rule 41 (symbol -> MINUS .)
-    INT             reduce using rule 41 (symbol -> MINUS .)
-    FLOAT           reduce using rule 41 (symbol -> MINUS .)
-    CHARACTER       reduce using rule 41 (symbol -> MINUS .)
-    STRING          reduce using rule 41 (symbol -> MINUS .)
-    OPEN_PAR        reduce using rule 41 (symbol -> MINUS .)
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    expression                     shift and go to state 62
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 35
 
-    (42) symbol -> DIVIDE .
+    (30) cons -> OPEN_PAR CONS . constant list_expression CLOSE_PAR
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    ID              reduce using rule 42 (symbol -> DIVIDE .)
-    INT             reduce using rule 42 (symbol -> DIVIDE .)
-    FLOAT           reduce using rule 42 (symbol -> DIVIDE .)
-    CHARACTER       reduce using rule 42 (symbol -> DIVIDE .)
-    STRING          reduce using rule 42 (symbol -> DIVIDE .)
-    OPEN_PAR        reduce using rule 42 (symbol -> DIVIDE .)
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    constant                       shift and go to state 63
+    boolean                        shift and go to state 21
 
 state 36
 
-    (43) symbol -> MULTIPLY .
+    (31) list_manip -> OPEN_PAR list_op . list CLOSE_PAR
+    (37) list -> . cons
+    (38) list -> . list_manip
+    (39) list -> . EMPTY
+    (40) list -> . ID
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
 
-    ID              reduce using rule 43 (symbol -> MULTIPLY .)
-    INT             reduce using rule 43 (symbol -> MULTIPLY .)
-    FLOAT           reduce using rule 43 (symbol -> MULTIPLY .)
-    CHARACTER       reduce using rule 43 (symbol -> MULTIPLY .)
-    STRING          reduce using rule 43 (symbol -> MULTIPLY .)
-    OPEN_PAR        reduce using rule 43 (symbol -> MULTIPLY .)
+    EMPTY           shift and go to state 68
+    ID              shift and go to state 69
+    OPEN_PAR        shift and go to state 64
 
+    list                           shift and go to state 65
+    cons                           shift and go to state 66
+    list_manip                     shift and go to state 67
 
 state 37
 
-    (44) symbol -> REMAINDER .
+    (48) comparison -> EQQUES .
 
-    ID              reduce using rule 44 (symbol -> REMAINDER .)
-    INT             reduce using rule 44 (symbol -> REMAINDER .)
-    FLOAT           reduce using rule 44 (symbol -> REMAINDER .)
-    CHARACTER       reduce using rule 44 (symbol -> REMAINDER .)
-    STRING          reduce using rule 44 (symbol -> REMAINDER .)
-    OPEN_PAR        reduce using rule 44 (symbol -> REMAINDER .)
+    ID              reduce using rule 48 (comparison -> EQQUES .)
+    INT             reduce using rule 48 (comparison -> EQQUES .)
+    FLOAT           reduce using rule 48 (comparison -> EQQUES .)
+    CHARACTER       reduce using rule 48 (comparison -> EQQUES .)
+    STRING          reduce using rule 48 (comparison -> EQQUES .)
+    OPEN_PAR        reduce using rule 48 (comparison -> EQQUES .)
+    READ            reduce using rule 48 (comparison -> EQQUES .)
+    TRUE            reduce using rule 48 (comparison -> EQQUES .)
+    FALSE           reduce using rule 48 (comparison -> EQQUES .)
 
 
 state 38
 
-    (32) list_op -> CDR .
+    (49) comparison -> NEQQUES .
 
-    OPEN_PAR        reduce using rule 32 (list_op -> CDR .)
-    EMPTY           reduce using rule 32 (list_op -> CDR .)
-    ID              reduce using rule 32 (list_op -> CDR .)
+    ID              reduce using rule 49 (comparison -> NEQQUES .)
+    INT             reduce using rule 49 (comparison -> NEQQUES .)
+    FLOAT           reduce using rule 49 (comparison -> NEQQUES .)
+    CHARACTER       reduce using rule 49 (comparison -> NEQQUES .)
+    STRING          reduce using rule 49 (comparison -> NEQQUES .)
+    OPEN_PAR        reduce using rule 49 (comparison -> NEQQUES .)
+    READ            reduce using rule 49 (comparison -> NEQQUES .)
+    TRUE            reduce using rule 49 (comparison -> NEQQUES .)
+    FALSE           reduce using rule 49 (comparison -> NEQQUES .)
 
 
 state 39
 
-    (33) list_op -> CAR .
+    (50) comparison -> EQUALS .
 
-    OPEN_PAR        reduce using rule 33 (list_op -> CAR .)
-    EMPTY           reduce using rule 33 (list_op -> CAR .)
-    ID              reduce using rule 33 (list_op -> CAR .)
+    ID              reduce using rule 50 (comparison -> EQUALS .)
+    INT             reduce using rule 50 (comparison -> EQUALS .)
+    FLOAT           reduce using rule 50 (comparison -> EQUALS .)
+    CHARACTER       reduce using rule 50 (comparison -> EQUALS .)
+    STRING          reduce using rule 50 (comparison -> EQUALS .)
+    OPEN_PAR        reduce using rule 50 (comparison -> EQUALS .)
+    READ            reduce using rule 50 (comparison -> EQUALS .)
+    TRUE            reduce using rule 50 (comparison -> EQUALS .)
+    FALSE           reduce using rule 50 (comparison -> EQUALS .)
 
 
 state 40
 
-    (34) list_op -> LAST .
+    (51) comparison -> GREATER .
 
-    OPEN_PAR        reduce using rule 34 (list_op -> LAST .)
-    EMPTY           reduce using rule 34 (list_op -> LAST .)
-    ID              reduce using rule 34 (list_op -> LAST .)
+    ID              reduce using rule 51 (comparison -> GREATER .)
+    INT             reduce using rule 51 (comparison -> GREATER .)
+    FLOAT           reduce using rule 51 (comparison -> GREATER .)
+    CHARACTER       reduce using rule 51 (comparison -> GREATER .)
+    STRING          reduce using rule 51 (comparison -> GREATER .)
+    OPEN_PAR        reduce using rule 51 (comparison -> GREATER .)
+    READ            reduce using rule 51 (comparison -> GREATER .)
+    TRUE            reduce using rule 51 (comparison -> GREATER .)
+    FALSE           reduce using rule 51 (comparison -> GREATER .)
 
 
 state 41
 
-    (47) comparison -> EQQUES .
+    (52) comparison -> LESS .
 
-    ID              reduce using rule 47 (comparison -> EQQUES .)
-    INT             reduce using rule 47 (comparison -> EQQUES .)
-    FLOAT           reduce using rule 47 (comparison -> EQQUES .)
-    CHARACTER       reduce using rule 47 (comparison -> EQQUES .)
-    STRING          reduce using rule 47 (comparison -> EQQUES .)
-    OPEN_PAR        reduce using rule 47 (comparison -> EQQUES .)
+    ID              reduce using rule 52 (comparison -> LESS .)
+    INT             reduce using rule 52 (comparison -> LESS .)
+    FLOAT           reduce using rule 52 (comparison -> LESS .)
+    CHARACTER       reduce using rule 52 (comparison -> LESS .)
+    STRING          reduce using rule 52 (comparison -> LESS .)
+    OPEN_PAR        reduce using rule 52 (comparison -> LESS .)
+    READ            reduce using rule 52 (comparison -> LESS .)
+    TRUE            reduce using rule 52 (comparison -> LESS .)
+    FALSE           reduce using rule 52 (comparison -> LESS .)
 
 
 state 42
 
-    (48) comparison -> NEQQUES .
+    (53) comparison -> GREATER_EQUAL .
 
-    ID              reduce using rule 48 (comparison -> NEQQUES .)
-    INT             reduce using rule 48 (comparison -> NEQQUES .)
-    FLOAT           reduce using rule 48 (comparison -> NEQQUES .)
-    CHARACTER       reduce using rule 48 (comparison -> NEQQUES .)
-    STRING          reduce using rule 48 (comparison -> NEQQUES .)
-    OPEN_PAR        reduce using rule 48 (comparison -> NEQQUES .)
+    ID              reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    INT             reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    FLOAT           reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    CHARACTER       reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    STRING          reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    OPEN_PAR        reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    READ            reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    TRUE            reduce using rule 53 (comparison -> GREATER_EQUAL .)
+    FALSE           reduce using rule 53 (comparison -> GREATER_EQUAL .)
 
 
 state 43
 
-    (49) comparison -> EQUALS .
+    (54) comparison -> LESS_EQUAL .
 
-    ID              reduce using rule 49 (comparison -> EQUALS .)
-    INT             reduce using rule 49 (comparison -> EQUALS .)
-    FLOAT           reduce using rule 49 (comparison -> EQUALS .)
-    CHARACTER       reduce using rule 49 (comparison -> EQUALS .)
-    STRING          reduce using rule 49 (comparison -> EQUALS .)
-    OPEN_PAR        reduce using rule 49 (comparison -> EQUALS .)
+    ID              reduce using rule 54 (comparison -> LESS_EQUAL .)
+    INT             reduce using rule 54 (comparison -> LESS_EQUAL .)
+    FLOAT           reduce using rule 54 (comparison -> LESS_EQUAL .)
+    CHARACTER       reduce using rule 54 (comparison -> LESS_EQUAL .)
+    STRING          reduce using rule 54 (comparison -> LESS_EQUAL .)
+    OPEN_PAR        reduce using rule 54 (comparison -> LESS_EQUAL .)
+    READ            reduce using rule 54 (comparison -> LESS_EQUAL .)
+    TRUE            reduce using rule 54 (comparison -> LESS_EQUAL .)
+    FALSE           reduce using rule 54 (comparison -> LESS_EQUAL .)
 
 
 state 44
 
-    (50) comparison -> GREATER .
+    (41) symbol -> ADD .
 
-    ID              reduce using rule 50 (comparison -> GREATER .)
-    INT             reduce using rule 50 (comparison -> GREATER .)
-    FLOAT           reduce using rule 50 (comparison -> GREATER .)
-    CHARACTER       reduce using rule 50 (comparison -> GREATER .)
-    STRING          reduce using rule 50 (comparison -> GREATER .)
-    OPEN_PAR        reduce using rule 50 (comparison -> GREATER .)
+    ID              reduce using rule 41 (symbol -> ADD .)
+    INT             reduce using rule 41 (symbol -> ADD .)
+    FLOAT           reduce using rule 41 (symbol -> ADD .)
+    CHARACTER       reduce using rule 41 (symbol -> ADD .)
+    STRING          reduce using rule 41 (symbol -> ADD .)
+    OPEN_PAR        reduce using rule 41 (symbol -> ADD .)
+    READ            reduce using rule 41 (symbol -> ADD .)
+    TRUE            reduce using rule 41 (symbol -> ADD .)
+    FALSE           reduce using rule 41 (symbol -> ADD .)
 
 
 state 45
 
-    (51) comparison -> LESS .
+    (42) symbol -> MINUS .
 
-    ID              reduce using rule 51 (comparison -> LESS .)
-    INT             reduce using rule 51 (comparison -> LESS .)
-    FLOAT           reduce using rule 51 (comparison -> LESS .)
-    CHARACTER       reduce using rule 51 (comparison -> LESS .)
-    STRING          reduce using rule 51 (comparison -> LESS .)
-    OPEN_PAR        reduce using rule 51 (comparison -> LESS .)
+    ID              reduce using rule 42 (symbol -> MINUS .)
+    INT             reduce using rule 42 (symbol -> MINUS .)
+    FLOAT           reduce using rule 42 (symbol -> MINUS .)
+    CHARACTER       reduce using rule 42 (symbol -> MINUS .)
+    STRING          reduce using rule 42 (symbol -> MINUS .)
+    OPEN_PAR        reduce using rule 42 (symbol -> MINUS .)
+    READ            reduce using rule 42 (symbol -> MINUS .)
+    TRUE            reduce using rule 42 (symbol -> MINUS .)
+    FALSE           reduce using rule 42 (symbol -> MINUS .)
 
 
 state 46
 
-    (52) comparison -> GREATER_EQUAL .
+    (43) symbol -> DIVIDE .
 
-    ID              reduce using rule 52 (comparison -> GREATER_EQUAL .)
-    INT             reduce using rule 52 (comparison -> GREATER_EQUAL .)
-    FLOAT           reduce using rule 52 (comparison -> GREATER_EQUAL .)
-    CHARACTER       reduce using rule 52 (comparison -> GREATER_EQUAL .)
-    STRING          reduce using rule 52 (comparison -> GREATER_EQUAL .)
-    OPEN_PAR        reduce using rule 52 (comparison -> GREATER_EQUAL .)
+    ID              reduce using rule 43 (symbol -> DIVIDE .)
+    INT             reduce using rule 43 (symbol -> DIVIDE .)
+    FLOAT           reduce using rule 43 (symbol -> DIVIDE .)
+    CHARACTER       reduce using rule 43 (symbol -> DIVIDE .)
+    STRING          reduce using rule 43 (symbol -> DIVIDE .)
+    OPEN_PAR        reduce using rule 43 (symbol -> DIVIDE .)
+    READ            reduce using rule 43 (symbol -> DIVIDE .)
+    TRUE            reduce using rule 43 (symbol -> DIVIDE .)
+    FALSE           reduce using rule 43 (symbol -> DIVIDE .)
 
 
 state 47
 
-    (53) comparison -> LESS_EQUAL .
+    (44) symbol -> MULTIPLY .
 
-    ID              reduce using rule 53 (comparison -> LESS_EQUAL .)
-    INT             reduce using rule 53 (comparison -> LESS_EQUAL .)
-    FLOAT           reduce using rule 53 (comparison -> LESS_EQUAL .)
-    CHARACTER       reduce using rule 53 (comparison -> LESS_EQUAL .)
-    STRING          reduce using rule 53 (comparison -> LESS_EQUAL .)
-    OPEN_PAR        reduce using rule 53 (comparison -> LESS_EQUAL .)
+    ID              reduce using rule 44 (symbol -> MULTIPLY .)
+    INT             reduce using rule 44 (symbol -> MULTIPLY .)
+    FLOAT           reduce using rule 44 (symbol -> MULTIPLY .)
+    CHARACTER       reduce using rule 44 (symbol -> MULTIPLY .)
+    STRING          reduce using rule 44 (symbol -> MULTIPLY .)
+    OPEN_PAR        reduce using rule 44 (symbol -> MULTIPLY .)
+    READ            reduce using rule 44 (symbol -> MULTIPLY .)
+    TRUE            reduce using rule 44 (symbol -> MULTIPLY .)
+    FALSE           reduce using rule 44 (symbol -> MULTIPLY .)
 
 
 state 48
 
-    (45) boolean -> TRUE .
+    (45) symbol -> REMAINDER .
 
-    ID              reduce using rule 45 (boolean -> TRUE .)
-    INT             reduce using rule 45 (boolean -> TRUE .)
-    FLOAT           reduce using rule 45 (boolean -> TRUE .)
-    CHARACTER       reduce using rule 45 (boolean -> TRUE .)
-    STRING          reduce using rule 45 (boolean -> TRUE .)
-    OPEN_PAR        reduce using rule 45 (boolean -> TRUE .)
+    ID              reduce using rule 45 (symbol -> REMAINDER .)
+    INT             reduce using rule 45 (symbol -> REMAINDER .)
+    FLOAT           reduce using rule 45 (symbol -> REMAINDER .)
+    CHARACTER       reduce using rule 45 (symbol -> REMAINDER .)
+    STRING          reduce using rule 45 (symbol -> REMAINDER .)
+    OPEN_PAR        reduce using rule 45 (symbol -> REMAINDER .)
+    READ            reduce using rule 45 (symbol -> REMAINDER .)
+    TRUE            reduce using rule 45 (symbol -> REMAINDER .)
+    FALSE           reduce using rule 45 (symbol -> REMAINDER .)
 
 
 state 49
 
-    (46) boolean -> FALSE .
+    (34) list_op -> CDR .
 
-    ID              reduce using rule 46 (boolean -> FALSE .)
-    INT             reduce using rule 46 (boolean -> FALSE .)
-    FLOAT           reduce using rule 46 (boolean -> FALSE .)
-    CHARACTER       reduce using rule 46 (boolean -> FALSE .)
-    STRING          reduce using rule 46 (boolean -> FALSE .)
-    OPEN_PAR        reduce using rule 46 (boolean -> FALSE .)
+    OPEN_PAR        reduce using rule 34 (list_op -> CDR .)
+    EMPTY           reduce using rule 34 (list_op -> CDR .)
+    ID              reduce using rule 34 (list_op -> CDR .)
 
 
 state 50
+
+    (35) list_op -> CAR .
+
+    OPEN_PAR        reduce using rule 35 (list_op -> CAR .)
+    EMPTY           reduce using rule 35 (list_op -> CAR .)
+    ID              reduce using rule 35 (list_op -> CAR .)
+
+
+state 51
+
+    (36) list_op -> LAST .
+
+    OPEN_PAR        reduce using rule 36 (list_op -> LAST .)
+    EMPTY           reduce using rule 36 (list_op -> LAST .)
+    ID              reduce using rule 36 (list_op -> LAST .)
+
+
+state 52
 
     (5) definition -> OPEN_PAR DEFINE ID . body CLOSE_PAR
     (6) body -> . expression
@@ -905,615 +1123,701 @@ state 50
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
     (5) definition -> . OPEN_PAR DEFINE ID body CLOSE_PAR
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
     ID              shift and go to state 6
     OPEN_PAR        shift and go to state 5
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
-    body                           shift and go to state 66
-    expression                     shift and go to state 67
-    definition                     shift and go to state 68
+    body                           shift and go to state 70
+    expression                     shift and go to state 71
+    definition                     shift and go to state 72
     constant                       shift and go to state 7
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
-state 51
-
-    (25) comparison_expression -> OPEN_PAR . comparison expression expression CLOSE_PAR
-    (47) comparison -> . EQQUES
-    (48) comparison -> . NEQQUES
-    (49) comparison -> . EQUALS
-    (50) comparison -> . GREATER
-    (51) comparison -> . LESS
-    (52) comparison -> . GREATER_EQUAL
-    (53) comparison -> . LESS_EQUAL
-
-    EQQUES          shift and go to state 41
-    NEQQUES         shift and go to state 42
-    EQUALS          shift and go to state 43
-    GREATER         shift and go to state 44
-    LESS            shift and go to state 45
-    GREATER_EQUAL   shift and go to state 46
-    LESS_EQUAL      shift and go to state 47
-
-    comparison                     shift and go to state 69
-
-state 52
-
-    (18) if_expression -> OPEN_PAR IF comparison_expression . expression CLOSE_PAR
-    (19) if_expression -> OPEN_PAR IF comparison_expression . expression expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 70
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 53
 
-    (23) do_condition -> OPEN_PAR . ID constant operation CLOSE_PAR
+    (26) comparison_expression -> OPEN_PAR . comparison expression expression CLOSE_PAR
+    (48) comparison -> . EQQUES
+    (49) comparison -> . NEQQUES
+    (50) comparison -> . EQUALS
+    (51) comparison -> . GREATER
+    (52) comparison -> . LESS
+    (53) comparison -> . GREATER_EQUAL
+    (54) comparison -> . LESS_EQUAL
 
-    ID              shift and go to state 71
+    EQQUES          shift and go to state 37
+    NEQQUES         shift and go to state 38
+    EQUALS          shift and go to state 39
+    GREATER         shift and go to state 40
+    LESS            shift and go to state 41
+    GREATER_EQUAL   shift and go to state 42
+    LESS_EQUAL      shift and go to state 43
 
+    comparison                     shift and go to state 31
 
 state 54
 
-    (22) do_expression -> OPEN_PAR DO do_condition . comparison_expression expression CLOSE_PAR
-    (25) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
-
-    OPEN_PAR        shift and go to state 51
-
-    comparison_expression          shift and go to state 72
-
-state 55
-
-    (20) cond_expression -> OPEN_PAR COND OPEN_BRA . comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA . comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (25) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
-
-    OPEN_PAR        shift and go to state 51
-
-    comparison_expression          shift and go to state 73
-
-state 56
-
-    (18) if_expression -> OPEN_PAR . IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> OPEN_PAR . IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> OPEN_PAR . DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
-    (26) read -> OPEN_PAR . READ CLOSE_PAR
-    (27) display -> OPEN_PAR . DISPLAY expression CLOSE_PAR
-    (28) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> OPEN_PAR . list_op list CLOSE_PAR
-    (38) symbol -> . comparison
-    (39) symbol -> . boolean
-    (40) symbol -> . ADD
-    (41) symbol -> . MINUS
-    (42) symbol -> . DIVIDE
-    (43) symbol -> . MULTIPLY
-    (44) symbol -> . REMAINDER
-    (32) list_op -> . CDR
-    (33) list_op -> . CAR
-    (34) list_op -> . LAST
-    (47) comparison -> . EQQUES
-    (48) comparison -> . NEQQUES
-    (49) comparison -> . EQUALS
-    (50) comparison -> . GREATER
-    (51) comparison -> . LESS
-    (52) comparison -> . GREATER_EQUAL
-    (53) comparison -> . LESS_EQUAL
-    (45) boolean -> . TRUE
-    (46) boolean -> . FALSE
-
-    IF              shift and go to state 23
-    DO              shift and go to state 24
-    COND            shift and go to state 25
-    READ            shift and go to state 27
-    DISPLAY         shift and go to state 28
-    CONS            shift and go to state 29
-    ADD             shift and go to state 33
-    MINUS           shift and go to state 34
-    DIVIDE          shift and go to state 35
-    MULTIPLY        shift and go to state 36
-    REMAINDER       shift and go to state 37
-    CDR             shift and go to state 38
-    CAR             shift and go to state 39
-    LAST            shift and go to state 40
-    EQQUES          shift and go to state 41
-    NEQQUES         shift and go to state 42
-    EQUALS          shift and go to state 43
-    GREATER         shift and go to state 44
-    LESS            shift and go to state 45
-    GREATER_EQUAL   shift and go to state 46
-    LESS_EQUAL      shift and go to state 47
-    TRUE            shift and go to state 48
-    FALSE           shift and go to state 49
-
-    symbol                         shift and go to state 26
-    list_op                        shift and go to state 30
-    comparison                     shift and go to state 31
-    boolean                        shift and go to state 32
-
-state 57
-
-    (24) operation -> OPEN_PAR symbol expression . expression CLOSE_PAR
+    (19) if_expression -> OPEN_PAR IF comparison_expression . expression CLOSE_PAR
+    (20) if_expression -> OPEN_PAR IF comparison_expression . expression expression CLOSE_PAR
     (8) expression -> . constant
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
     ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
-    expression                     shift and go to state 74
+    comparison_expression          shift and go to state 11
+    expression                     shift and go to state 73
     constant                       shift and go to state 7
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
+
+state 55
+
+    (24) id_set -> OPEN_PAR . ID constant CLOSE_PAR
+
+    ID              shift and go to state 74
+
+
+state 56
+
+    (23) do_expression -> OPEN_PAR DO id_set . operation comparison_expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+
+    OPEN_PAR        shift and go to state 75
+
+    operation                      shift and go to state 76
+
+state 57
+
+    (21) cond_expression -> OPEN_PAR COND OPEN_BRA . comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA . comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+
+    OPEN_PAR        shift and go to state 53
+
+    comparison_expression          shift and go to state 77
 
 state 58
 
-    (26) read -> OPEN_PAR READ CLOSE_PAR .
+    (19) if_expression -> OPEN_PAR . IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> OPEN_PAR . IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> OPEN_PAR . DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR . COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> OPEN_PAR . comparison expression expression CLOSE_PAR
+    (25) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
+    (28) read -> OPEN_PAR . READ CLOSE_PAR
+    (29) display -> OPEN_PAR . DISPLAY expression CLOSE_PAR
+    (30) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> OPEN_PAR . list_op list CLOSE_PAR
+    (48) comparison -> . EQQUES
+    (49) comparison -> . NEQQUES
+    (50) comparison -> . EQUALS
+    (51) comparison -> . GREATER
+    (52) comparison -> . LESS
+    (53) comparison -> . GREATER_EQUAL
+    (54) comparison -> . LESS_EQUAL
+    (41) symbol -> . ADD
+    (42) symbol -> . MINUS
+    (43) symbol -> . DIVIDE
+    (44) symbol -> . MULTIPLY
+    (45) symbol -> . REMAINDER
+    (34) list_op -> . CDR
+    (35) list_op -> . CAR
+    (36) list_op -> . LAST
 
-    $end            reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    ID              reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    INT             reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    FLOAT           reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    CHARACTER       reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    STRING          reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 26 (read -> OPEN_PAR READ CLOSE_PAR .)
+    IF              shift and go to state 28
+    DO              shift and go to state 29
+    COND            shift and go to state 30
+    READ            shift and go to state 33
+    DISPLAY         shift and go to state 34
+    CONS            shift and go to state 35
+    EQQUES          shift and go to state 37
+    NEQQUES         shift and go to state 38
+    EQUALS          shift and go to state 39
+    GREATER         shift and go to state 40
+    LESS            shift and go to state 41
+    GREATER_EQUAL   shift and go to state 42
+    LESS_EQUAL      shift and go to state 43
+    ADD             shift and go to state 44
+    MINUS           shift and go to state 45
+    DIVIDE          shift and go to state 46
+    MULTIPLY        shift and go to state 47
+    REMAINDER       shift and go to state 48
+    CDR             shift and go to state 49
+    CAR             shift and go to state 50
+    LAST            shift and go to state 51
 
+    comparison                     shift and go to state 31
+    symbol                         shift and go to state 32
+    list_op                        shift and go to state 36
 
 state 59
 
-    (27) display -> OPEN_PAR DISPLAY expression . CLOSE_PAR
+    (26) comparison_expression -> OPEN_PAR comparison expression . expression CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    CLOSE_PAR       shift and go to state 75
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    expression                     shift and go to state 78
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 60
 
-    (28) cons -> OPEN_PAR CONS constant . list_expression CLOSE_PAR
-    (30) list_expression -> . list
-    (31) list_expression -> . constant
-    (35) list -> . cons
-    (36) list -> . EMPTY
-    (37) list -> . ID
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (25) operation -> OPEN_PAR symbol expression . expression CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    EMPTY           shift and go to state 64
-    ID              shift and go to state 65
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 61
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
-    constant                       shift and go to state 76
-    list_expression                shift and go to state 77
-    list                           shift and go to state 78
-    cons                           shift and go to state 63
+    expression                     shift and go to state 79
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    comparison_expression          shift and go to state 11
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 61
 
-    (28) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
+    (28) read -> OPEN_PAR READ CLOSE_PAR .
 
-    CONS            shift and go to state 29
+    $end            reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    ID              reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    INT             reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    FLOAT           reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    CHARACTER       reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    STRING          reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    READ            reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    TRUE            reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    FALSE           reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 28 (read -> OPEN_PAR READ CLOSE_PAR .)
 
 
 state 62
 
-    (29) list_manip -> OPEN_PAR list_op list . CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 79
-
-
-state 63
-
-    (35) list -> cons .
-
-    CLOSE_PAR       reduce using rule 35 (list -> cons .)
-
-
-state 64
-
-    (36) list -> EMPTY .
-
-    CLOSE_PAR       reduce using rule 36 (list -> EMPTY .)
-
-
-state 65
-
-    (37) list -> ID .
-
-    CLOSE_PAR       reduce using rule 37 (list -> ID .)
-
-
-state 66
-
-    (5) definition -> OPEN_PAR DEFINE ID body . CLOSE_PAR
+    (29) display -> OPEN_PAR DISPLAY expression . CLOSE_PAR
 
     CLOSE_PAR       shift and go to state 80
 
 
+state 63
+
+    (30) cons -> OPEN_PAR CONS constant . list_expression CLOSE_PAR
+    (32) list_expression -> . list
+    (33) list_expression -> . constant
+    (37) list -> . cons
+    (38) list -> . list_manip
+    (39) list -> . EMPTY
+    (40) list -> . ID
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
+
+    EMPTY           shift and go to state 68
+    ID              shift and go to state 69
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 64
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
+
+    constant                       shift and go to state 81
+    list_expression                shift and go to state 82
+    list                           shift and go to state 83
+    cons                           shift and go to state 66
+    list_manip                     shift and go to state 67
+    boolean                        shift and go to state 21
+
+state 64
+
+    (30) cons -> OPEN_PAR . CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> OPEN_PAR . list_op list CLOSE_PAR
+    (34) list_op -> . CDR
+    (35) list_op -> . CAR
+    (36) list_op -> . LAST
+
+    CONS            shift and go to state 35
+    CDR             shift and go to state 49
+    CAR             shift and go to state 50
+    LAST            shift and go to state 51
+
+    list_op                        shift and go to state 36
+
+state 65
+
+    (31) list_manip -> OPEN_PAR list_op list . CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 84
+
+
+state 66
+
+    (37) list -> cons .
+
+    CLOSE_PAR       reduce using rule 37 (list -> cons .)
+
+
 state 67
+
+    (38) list -> list_manip .
+
+    CLOSE_PAR       reduce using rule 38 (list -> list_manip .)
+
+
+state 68
+
+    (39) list -> EMPTY .
+
+    CLOSE_PAR       reduce using rule 39 (list -> EMPTY .)
+
+
+state 69
+
+    (40) list -> ID .
+
+    CLOSE_PAR       reduce using rule 40 (list -> ID .)
+
+
+state 70
+
+    (5) definition -> OPEN_PAR DEFINE ID body . CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 85
+
+
+state 71
 
     (6) body -> expression .
 
     CLOSE_PAR       reduce using rule 6 (body -> expression .)
 
 
-state 68
+state 72
 
     (7) body -> definition .
 
     CLOSE_PAR       reduce using rule 7 (body -> definition .)
 
 
-state 69
-
-    (25) comparison_expression -> OPEN_PAR comparison . expression expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 81
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
-state 70
-
-    (18) if_expression -> OPEN_PAR IF comparison_expression expression . CLOSE_PAR
-    (19) if_expression -> OPEN_PAR IF comparison_expression expression . expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 83
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 82
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
-state 71
-
-    (23) do_condition -> OPEN_PAR ID . constant operation CLOSE_PAR
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-
-    constant                       shift and go to state 84
-
-state 72
-
-    (22) do_expression -> OPEN_PAR DO do_condition comparison_expression . expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 85
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
 state 73
 
-    (20) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression . expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression . expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (19) if_expression -> OPEN_PAR IF comparison_expression expression . CLOSE_PAR
+    (20) if_expression -> OPEN_PAR IF comparison_expression expression . expression CLOSE_PAR
     (8) expression -> . constant
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
+    CLOSE_PAR       shift and go to state 87
     ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    comparison_expression          shift and go to state 11
     expression                     shift and go to state 86
     constant                       shift and go to state 7
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 74
 
-    (24) operation -> OPEN_PAR symbol expression expression . CLOSE_PAR
+    (24) id_set -> OPEN_PAR ID . constant CLOSE_PAR
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    CLOSE_PAR       shift and go to state 87
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    constant                       shift and go to state 88
+    boolean                        shift and go to state 21
 
 state 75
 
-    (27) display -> OPEN_PAR DISPLAY expression CLOSE_PAR .
+    (25) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
+    (41) symbol -> . ADD
+    (42) symbol -> . MINUS
+    (43) symbol -> . DIVIDE
+    (44) symbol -> . MULTIPLY
+    (45) symbol -> . REMAINDER
 
-    $end            reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    ID              reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    INT             reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    FLOAT           reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    STRING          reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 27 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    ADD             shift and go to state 44
+    MINUS           shift and go to state 45
+    DIVIDE          shift and go to state 46
+    MULTIPLY        shift and go to state 47
+    REMAINDER       shift and go to state 48
 
+    symbol                         shift and go to state 32
 
 state 76
 
-    (31) list_expression -> constant .
+    (23) do_expression -> OPEN_PAR DO id_set operation . comparison_expression expression CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
 
-    CLOSE_PAR       reduce using rule 31 (list_expression -> constant .)
+    OPEN_PAR        shift and go to state 53
 
+    comparison_expression          shift and go to state 89
 
 state 77
 
-    (28) cons -> OPEN_PAR CONS constant list_expression . CLOSE_PAR
+    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression . expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression . expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    CLOSE_PAR       shift and go to state 88
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    comparison_expression          shift and go to state 11
+    expression                     shift and go to state 90
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 78
 
-    (30) list_expression -> list .
+    (26) comparison_expression -> OPEN_PAR comparison expression expression . CLOSE_PAR
 
-    CLOSE_PAR       reduce using rule 30 (list_expression -> list .)
+    CLOSE_PAR       shift and go to state 91
 
 
 state 79
 
-    (29) list_manip -> OPEN_PAR list_op list CLOSE_PAR .
+    (25) operation -> OPEN_PAR symbol expression expression . CLOSE_PAR
 
-    $end            reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    ID              reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    INT             reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    FLOAT           reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    CHARACTER       reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    STRING          reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 29 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    CLOSE_PAR       shift and go to state 92
 
 
 state 80
+
+    (29) display -> OPEN_PAR DISPLAY expression CLOSE_PAR .
+
+    $end            reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    ID              reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    INT             reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    FLOAT           reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    STRING          reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    READ            reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    TRUE            reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    FALSE           reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 29 (display -> OPEN_PAR DISPLAY expression CLOSE_PAR .)
+
+
+state 81
+
+    (33) list_expression -> constant .
+
+    CLOSE_PAR       reduce using rule 33 (list_expression -> constant .)
+
+
+state 82
+
+    (30) cons -> OPEN_PAR CONS constant list_expression . CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 93
+
+
+state 83
+
+    (32) list_expression -> list .
+
+    CLOSE_PAR       reduce using rule 32 (list_expression -> list .)
+
+
+state 84
+
+    (31) list_manip -> OPEN_PAR list_op list CLOSE_PAR .
+
+    $end            reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    ID              reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    INT             reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    FLOAT           reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    CHARACTER       reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    STRING          reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    READ            reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    TRUE            reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    FALSE           reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 31 (list_manip -> OPEN_PAR list_op list CLOSE_PAR .)
+
+
+state 85
 
     (5) definition -> OPEN_PAR DEFINE ID body CLOSE_PAR .
 
@@ -1522,332 +1826,326 @@ state 80
     CLOSE_PAR       reduce using rule 5 (definition -> OPEN_PAR DEFINE ID body CLOSE_PAR .)
 
 
-state 81
-
-    (25) comparison_expression -> OPEN_PAR comparison expression . expression CLOSE_PAR
-    (8) expression -> . constant
-    (9) expression -> . if_expression
-    (10) expression -> . do_expression
-    (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
-
-    ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
-
-    expression                     shift and go to state 89
-    constant                       shift and go to state 7
-    if_expression                  shift and go to state 8
-    do_expression                  shift and go to state 9
-    cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
-
-state 82
-
-    (19) if_expression -> OPEN_PAR IF comparison_expression expression expression . CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 90
-
-
-state 83
-
-    (18) if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .
-
-    $end            reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    ID              reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    INT             reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    FLOAT           reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    STRING          reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 18 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
-
-
-state 84
-
-    (23) do_condition -> OPEN_PAR ID constant . operation CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-
-    OPEN_PAR        shift and go to state 91
-
-    operation                      shift and go to state 92
-
-state 85
-
-    (22) do_expression -> OPEN_PAR DO do_condition comparison_expression expression . CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 93
-
-
 state 86
 
-    (20) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression . CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression . CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (20) if_expression -> OPEN_PAR IF comparison_expression expression expression . CLOSE_PAR
 
-    CLOSE_BRA       shift and go to state 94
+    CLOSE_PAR       shift and go to state 94
 
 
 state 87
 
-    (24) operation -> OPEN_PAR symbol expression expression CLOSE_PAR .
+    (19) if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .
 
-    $end            reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    ID              reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    INT             reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    FLOAT           reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    STRING          reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 24 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    $end            reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    ID              reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    INT             reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    FLOAT           reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    STRING          reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    READ            reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    TRUE            reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    FALSE           reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression CLOSE_PAR .)
 
 
 state 88
 
-    (28) cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .
-
-    $end            reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    ID              reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    INT             reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    FLOAT           reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    STRING          reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 28 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
-
-
-state 89
-
-    (25) comparison_expression -> OPEN_PAR comparison expression expression . CLOSE_PAR
+    (24) id_set -> OPEN_PAR ID constant . CLOSE_PAR
 
     CLOSE_PAR       shift and go to state 95
 
 
-state 90
+state 89
 
-    (19) if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .
-
-    $end            reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    ID              reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    INT             reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    FLOAT           reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    STRING          reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 19 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
-
-
-state 91
-
-    (24) operation -> OPEN_PAR . symbol expression expression CLOSE_PAR
-    (38) symbol -> . comparison
-    (39) symbol -> . boolean
-    (40) symbol -> . ADD
-    (41) symbol -> . MINUS
-    (42) symbol -> . DIVIDE
-    (43) symbol -> . MULTIPLY
-    (44) symbol -> . REMAINDER
-    (47) comparison -> . EQQUES
-    (48) comparison -> . NEQQUES
-    (49) comparison -> . EQUALS
-    (50) comparison -> . GREATER
-    (51) comparison -> . LESS
-    (52) comparison -> . GREATER_EQUAL
-    (53) comparison -> . LESS_EQUAL
-    (45) boolean -> . TRUE
-    (46) boolean -> . FALSE
-
-    ADD             shift and go to state 33
-    MINUS           shift and go to state 34
-    DIVIDE          shift and go to state 35
-    MULTIPLY        shift and go to state 36
-    REMAINDER       shift and go to state 37
-    EQQUES          shift and go to state 41
-    NEQQUES         shift and go to state 42
-    EQUALS          shift and go to state 43
-    GREATER         shift and go to state 44
-    LESS            shift and go to state 45
-    GREATER_EQUAL   shift and go to state 46
-    LESS_EQUAL      shift and go to state 47
-    TRUE            shift and go to state 48
-    FALSE           shift and go to state 49
-
-    symbol                         shift and go to state 26
-    comparison                     shift and go to state 31
-    boolean                        shift and go to state 32
-
-state 92
-
-    (23) do_condition -> OPEN_PAR ID constant operation . CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 96
-
-
-state 93
-
-    (22) do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .
-
-    $end            reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    ID              reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    INT             reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    FLOAT           reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    STRING          reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 22 (do_expression -> OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR .)
-
-
-state 94
-
-    (20) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA . CLOSE_PAR
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA . OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-
-    CLOSE_PAR       shift and go to state 98
-    OPEN_BRA        shift and go to state 97
-
-
-state 95
-
-    (25) comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .
-
-    ID              reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-    INT             reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-    FLOAT           reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-    CHARACTER       reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-    STRING          reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 25 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
-
-
-state 96
-
-    (23) do_condition -> OPEN_PAR ID constant operation CLOSE_PAR .
-
-    OPEN_PAR        reduce using rule 23 (do_condition -> OPEN_PAR ID constant operation CLOSE_PAR .)
-
-
-state 97
-
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA . ELSE expression CLOSE_BRA CLOSE_PAR
-
-    ELSE            shift and go to state 99
-
-
-state 98
-
-    (20) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .
-
-    $end            reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    ID              reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    INT             reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    FLOAT           reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    CHARACTER       reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    STRING          reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 20 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
-
-
-state 99
-
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE . expression CLOSE_BRA CLOSE_PAR
+    (23) do_expression -> OPEN_PAR DO id_set operation comparison_expression . expression CLOSE_PAR
     (8) expression -> . constant
     (9) expression -> . if_expression
     (10) expression -> . do_expression
     (11) expression -> . cond_expression
-    (12) expression -> . operation
-    (13) expression -> . ID
-    (14) expression -> . read
-    (15) expression -> . display
-    (16) expression -> . cons
-    (17) expression -> . list_manip
-    (54) constant -> . INT
-    (55) constant -> . FLOAT
-    (56) constant -> . CHARACTER
-    (57) constant -> . STRING
-    (18) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
-    (19) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
-    (22) do_expression -> . OPEN_PAR DO do_condition comparison_expression expression CLOSE_PAR
-    (20) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
-    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
-    (24) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
-    (26) read -> . OPEN_PAR READ CLOSE_PAR
-    (27) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
-    (28) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
-    (29) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
     ID              shift and go to state 6
-    INT             shift and go to state 16
-    FLOAT           shift and go to state 17
-    CHARACTER       shift and go to state 18
-    STRING          shift and go to state 19
-    OPEN_PAR        shift and go to state 56
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
-    expression                     shift and go to state 100
+    operation                      shift and go to state 12
+    comparison_expression          shift and go to state 11
+    expression                     shift and go to state 96
     constant                       shift and go to state 7
     if_expression                  shift and go to state 8
     do_expression                  shift and go to state 9
     cond_expression                shift and go to state 10
-    operation                      shift and go to state 11
-    read                           shift and go to state 12
-    display                        shift and go to state 13
-    cons                           shift and go to state 14
-    list_manip                     shift and go to state 15
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
+
+state 90
+
+    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression . CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression . CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+
+    CLOSE_BRA       shift and go to state 97
+
+
+state 91
+
+    (26) comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .
+
+    $end            reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    ID              reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    INT             reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    FLOAT           reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    STRING          reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    READ            reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    TRUE            reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    FALSE           reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 26 (comparison_expression -> OPEN_PAR comparison expression expression CLOSE_PAR .)
+
+
+state 92
+
+    (25) operation -> OPEN_PAR symbol expression expression CLOSE_PAR .
+
+    $end            reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    ID              reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    INT             reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    FLOAT           reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    STRING          reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    READ            reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    TRUE            reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    FALSE           reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 25 (operation -> OPEN_PAR symbol expression expression CLOSE_PAR .)
+
+
+state 93
+
+    (30) cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .
+
+    $end            reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    ID              reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    INT             reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    FLOAT           reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    STRING          reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    READ            reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    TRUE            reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    FALSE           reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 30 (cons -> OPEN_PAR CONS constant list_expression CLOSE_PAR .)
+
+
+state 94
+
+    (20) if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .
+
+    $end            reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    ID              reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    INT             reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    FLOAT           reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    STRING          reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    READ            reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    TRUE            reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    FALSE           reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 20 (if_expression -> OPEN_PAR IF comparison_expression expression expression CLOSE_PAR .)
+
+
+state 95
+
+    (24) id_set -> OPEN_PAR ID constant CLOSE_PAR .
+
+    OPEN_PAR        reduce using rule 24 (id_set -> OPEN_PAR ID constant CLOSE_PAR .)
+
+
+state 96
+
+    (23) do_expression -> OPEN_PAR DO id_set operation comparison_expression expression . CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 98
+
+
+state 97
+
+    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA . CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA . OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 100
+    OPEN_BRA        shift and go to state 99
+
+
+state 98
+
+    (23) do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .
+
+    $end            reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    ID              reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    INT             reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    FLOAT           reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    CHARACTER       reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    STRING          reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    READ            reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    TRUE            reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    FALSE           reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 23 (do_expression -> OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR .)
+
+
+state 99
+
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA . ELSE expression CLOSE_BRA CLOSE_PAR
+
+    ELSE            shift and go to state 101
+
 
 state 100
 
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression . CLOSE_BRA CLOSE_PAR
+    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .
 
-    CLOSE_BRA       shift and go to state 101
+    $end            reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    ID              reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    INT             reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    FLOAT           reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    CHARACTER       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    STRING          reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    READ            reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    TRUE            reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    FALSE           reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR .)
 
 
 state 101
 
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA . CLOSE_PAR
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE . expression CLOSE_BRA CLOSE_PAR
+    (8) expression -> . constant
+    (9) expression -> . if_expression
+    (10) expression -> . do_expression
+    (11) expression -> . cond_expression
+    (12) expression -> . comparison_expression
+    (13) expression -> . operation
+    (14) expression -> . ID
+    (15) expression -> . read
+    (16) expression -> . display
+    (17) expression -> . cons
+    (18) expression -> . list_manip
+    (55) constant -> . INT
+    (56) constant -> . FLOAT
+    (57) constant -> . CHARACTER
+    (58) constant -> . STRING
+    (59) constant -> . boolean
+    (19) if_expression -> . OPEN_PAR IF comparison_expression expression CLOSE_PAR
+    (20) if_expression -> . OPEN_PAR IF comparison_expression expression expression CLOSE_PAR
+    (23) do_expression -> . OPEN_PAR DO id_set operation comparison_expression expression CLOSE_PAR
+    (21) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA CLOSE_PAR
+    (22) cond_expression -> . OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR
+    (26) comparison_expression -> . OPEN_PAR comparison expression expression CLOSE_PAR
+    (25) operation -> . OPEN_PAR symbol expression expression CLOSE_PAR
+    (27) read -> . READ
+    (28) read -> . OPEN_PAR READ CLOSE_PAR
+    (29) display -> . OPEN_PAR DISPLAY expression CLOSE_PAR
+    (30) cons -> . OPEN_PAR CONS constant list_expression CLOSE_PAR
+    (31) list_manip -> . OPEN_PAR list_op list CLOSE_PAR
+    (46) boolean -> . TRUE
+    (47) boolean -> . FALSE
 
-    CLOSE_PAR       shift and go to state 102
+    ID              shift and go to state 6
+    INT             shift and go to state 17
+    FLOAT           shift and go to state 18
+    CHARACTER       shift and go to state 19
+    STRING          shift and go to state 20
+    OPEN_PAR        shift and go to state 58
+    READ            shift and go to state 22
+    TRUE            shift and go to state 23
+    FALSE           shift and go to state 24
 
+    comparison_expression          shift and go to state 11
+    expression                     shift and go to state 102
+    constant                       shift and go to state 7
+    if_expression                  shift and go to state 8
+    do_expression                  shift and go to state 9
+    cond_expression                shift and go to state 10
+    operation                      shift and go to state 12
+    read                           shift and go to state 13
+    display                        shift and go to state 14
+    cons                           shift and go to state 15
+    list_manip                     shift and go to state 16
+    boolean                        shift and go to state 21
 
 state 102
 
-    (21) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression . CLOSE_BRA CLOSE_PAR
 
-    $end            reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    CLOSE_PAR       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    ID              reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    INT             reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    FLOAT           reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    CHARACTER       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    STRING          reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    OPEN_PAR        reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
-    CLOSE_BRA       reduce using rule 21 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    CLOSE_BRA       shift and go to state 103
+
+
+state 103
+
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA . CLOSE_PAR
+
+    CLOSE_PAR       shift and go to state 104
+
+
+state 104
+
+    (22) cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .
+
+    $end            reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    CLOSE_PAR       reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    ID              reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    INT             reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    FLOAT           reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    CHARACTER       reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    STRING          reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    OPEN_PAR        reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    READ            reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    TRUE            reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    FALSE           reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
+    CLOSE_BRA       reduce using rule 22 (cond_expression -> OPEN_PAR COND OPEN_BRA comparison_expression expression CLOSE_BRA OPEN_BRA ELSE expression CLOSE_BRA CLOSE_PAR .)
 

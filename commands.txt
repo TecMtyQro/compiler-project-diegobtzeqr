@@ -1,5 +1,5 @@
 python scheme_compiler.py < tests/VariableDefinition.rkt
-python scheme_compiler.py < tests/InputOutput.rkt
+python scheme_compiler.py < tests/Output.rkt
 python scheme_compiler.py < tests/LoopConditional.rkt
 python scheme_compiler.py < tests/All.rkt
 python scheme_compiler.py < tests/WrongDefine.rkt

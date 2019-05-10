@@ -1,0 +1,1 @@
+(display "Common sentence to be displayed")

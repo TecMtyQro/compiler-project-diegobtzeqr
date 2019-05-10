@@ -1,1 +1,1 @@
-(do (i 0 (+ i 1)) (> 4 i) (if (< i 8) (+ i 5)))
+(do (i 0) (+ i 1) (> 8 i) (if (< i 4) (display i) (display test)))
